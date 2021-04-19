@@ -1,0 +1,18 @@
+﻿@model Status
+
+@{
+    ViewData["Title"] = "Add Status";
+}
+
+<h1 class="display-4">Add Status</h1>
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-dark">Add</button>
+    <a asp-action="Index" asp-controller="Status" class="btn btn-outline-dark">Cancel</a>
+</form>
+

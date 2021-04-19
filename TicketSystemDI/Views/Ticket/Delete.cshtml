@@ -1,0 +1,29 @@
+﻿@model Ticket
+
+@{
+    ViewData["Title"] = "Delete Ticket";
+}
+
+<h1 class="display-4">Delete Ticket</h1>
+<ul class="list-group mb-2">
+    <li class="list-group-item">
+        <h4>@Model?.Name @Model?.Description</h4>
+    </li>
+    <li class="list-group-item">
+        Sprint: @Model?.Sprint.SprintNumber
+    </li>
+    <li class="list-group-item">
+        Sprint: @Model?.Status.Name
+    </li>
+    <li class="list-group-item">
+        Sprint: @Model?.Point.Name
+    </li>
+    
+</ul>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="TicketId" />
+    <button type="submit" class="btn btn-dark">Delete</button>
+    <a asp-action="Index" asp-controller="Home" asp-route-id="@ViewBag.TicketId"
+       class="btn btn-outline-dark">Cancel</a>
+</form>

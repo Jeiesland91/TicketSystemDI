@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Sprint>
+
+@{
+    ViewData["Title"] = "Sprint";
+}
+
+<a asp-action="Add" class="ml-3">Add Sprint</a>
+
+<table class="table table-bordered table-striped mt-2">
+    <thead>
+        <tr><th>Name</th><th>Name</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (Sprint sprint in Model)
+        {
+            <tr>
+                <td>@sprint.SprintNumber</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@sprint.SprintId"
+                       class="btn btn-outline-dark">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

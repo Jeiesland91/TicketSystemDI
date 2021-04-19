@@ -1,0 +1,17 @@
+﻿@model Sprint
+
+@{
+    ViewData["Title"] = "Add Sprint";
+}
+
+<h1 class="display-4">Add Sprint</h1>
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="SprintNumber">Sprint Number</label>
+        <input asp-for="SprintNumber" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-dark">Add</button>
+    <a asp-action="Index" asp-controller="Sprint" class="btn btn-outline-dark">Cancel</a>
+</form>

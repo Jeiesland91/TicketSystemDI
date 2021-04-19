@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Point>
+
+@{
+    ViewData["Title"] = "Point";
+}
+
+<a asp-action="Add" class="ml-3">Add Point</a>
+
+<table class="table table-bordered table-striped mt-2">
+    <thead>
+    <tr><th>Name</th><th>Name</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (Point point in Model)
+    {
+        <tr>
+            <td>@point.Name</td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@point.PointId"
+                   class="btn btn-outline-dark">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

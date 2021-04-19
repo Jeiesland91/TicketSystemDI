@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Status>
+
+@{
+    ViewData["Title"] = "Status";
+}
+
+<a asp-action="Add" class="ml-3">Add Status</a>
+
+<table class="table table-bordered table-striped mt-2">
+    <thead>
+    <tr><th>Name</th><th>Name</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (Status status in Model)
+    {
+        <tr>
+            <td>@status.Name</td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@status.StatusId"
+                   class="btn btn-outline-dark">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

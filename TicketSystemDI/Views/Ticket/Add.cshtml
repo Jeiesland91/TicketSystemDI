@@ -1,0 +1,51 @@
+﻿@model Ticket
+
+@{
+    ViewData["Title"] = $"{ViewBag.Operation} Ticket";
+}
+
+<h1 class="display-4">@ViewBag.Operation Ticket</h1>
+
+
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input type="text" asp-for="Name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <input type="text" asp-for="Description" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sprint"></label>
+        <select asp-for="SprintId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Sprints, "SprintId", "SprintNumber"))"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Point"></label>
+        <select asp-for="PointId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Points, "PointId", "Name"))"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="StatusId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "Name"))"></select>
+    </div>
+    
+    @if (ViewBag.Operation == "Edit")
+    {
+        <input type="hidden" asp-for="TicketId" />
+    }
+
+    <button type="submit" class="btn btn-dark">@ViewBag.Operation</button>
+    <a asp-action="Index" asp-controller="Home" asp-route-id="@ViewBag.TicketId" 
+       class="btn btn-outline-dark">Cancel</a>
+</form>
+
+
